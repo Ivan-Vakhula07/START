@@ -1,0 +1,89 @@
+/* --- Базові налаштування (скидання відступів) --- */
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: sans-serif; /* Простий шрифт */
+}
+
+/* --- Стилі шапки (Навігації) --- */
+nav {
+  /* Той самий фіолетовий колір з фото */
+  background: #800080;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Розподіляє лого і бургер по краях */
+  align-items: center;
+  padding: 0 30px; /* Відступи збоку */
+  position: relative;
+  z-index: 10;
+}
+
+/* Стиль логотипу "Makos Tech" */
+label.logo {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* --- Стилі для кнопки "Бургер" --- */
+.checkbtn {
+  font-size: 25px;
+  color: white;
+  cursor: pointer;
+  display: block; /* ВАЖЛИВО: Завжди показувати бургер, як на фото 2 */
+}
+
+/* Ховаємо сам чекбокс */
+#check {
+  display: none;
+}
+
+/* --- Стилі для випадаючого меню (список посилань) --- */
+nav ul {
+  position: fixed; /* Фіксоване позиціонування */
+  width: 100%;
+  height: 100vh; /* На всю висоту екрану */
+  background: #5e005e; /* Трохи темніший фіолетовий для меню */
+  top: 80px; /* Відступ зверху (висота шапки) */
+  left: -100%; /* ВАЖЛИВО: Меню сховане за лівим краєм екрану */
+  text-align: center;
+  transition: all .5s; /* Плавна анімація виїзду */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Стилі пунктів меню */
+nav ul li {
+  margin: 20px 0;
+}
+
+nav ul li a {
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  display: block;
+}
+
+nav ul li a:hover, nav ul li a.active {
+  color: #d4a3d4; /* Світліший колір при наведенні */
+}
+
+/* --- Механізм відкриття меню --- */
+/* Коли чекбокс натиснутий, меню виїжджає зліва (left: 0) */
+#check:checked ~ ul {
+  left: 0;
+}
+
+/* --- Секція з великим фото --- */
+section {
+  /* УВАГА: Заміни 'headphones.jpg' на назву свого файлу з картинкою! */
+  background: url('headphones.jpg') no-repeat center center;
+  background-size: cover; /* Картинка розтягується на весь блок */
+  height: calc(100vh - 80px); /* Висота на весь екран мінус висота шапки */
+  width: 100%;
+}
